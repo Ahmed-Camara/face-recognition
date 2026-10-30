@@ -1,0 +1,29 @@
+img:
+  max_side: 1600              # plus grand côté après redimensionnement (px)
+
+model:
+  pack: "buffalo_l"           # buffalo_l (précis) | buffalo_s (léger, CPU modeste)
+  det_size: 640
+  min_det_score: 0.5          # confiance minimale du détecteur (0..1)
+  providers: ["CUDAExecutionProvider", "CPUExecutionProvider"]  # GPU si dispo, sinon CPU
+
+decision:
+  # Similarité cosinus ArcFace (-1..1). Valeurs de DÉPART : à calibrer sur vos
+  # propres paires selfie / pièce avec scripts/calibrate.py.
+  match_threshold: 0.40       # >= : même personne
+  review_threshold: 0.28      # entre les deux : vérification manuelle
+
+liveness:
+  enabled: true               # anti-fraude sur le selfie (photo d'écran, impression)
+  threshold: 0.8              # score de vivacité minimal (0..1)
+
+quality:
+  min_face_px: 32             # visage plus petit : refusé
+  upscale_below_px: 112       # visage plus petit : 2e passe agrandie (photo de pièce)
+
+api:
+  max_upload_mb: 10
+  cors_origins: ["http://localhost:3000"]   # domaines autorisés à appeler l'API
+  host: "0.0.0.0"
+  port: 9089
+  threads: 4

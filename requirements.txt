@@ -1,0 +1,10 @@
+flask>=3.0
+flask-cors>=4.0
+waitress>=3.0
+insightface>=2.1
+onnxruntime>=1.18          # remplacer par onnxruntime-gpu avec une carte NVIDIA
+opencv-python-headless>=4.10
+numpy
+Pillow
+pyyaml
+pillow-heif                # optionnel : photos iPhone (HEIC)
