@@ -3,7 +3,7 @@ flask-cors>=4.0
 waitress>=3.0
 insightface>=2.1
 onnxruntime>=1.18          # remplacer par onnxruntime-gpu avec une carte NVIDIA
-opencv-python-headless>=4.10
+opencv-python==4.10.0.84
 numpy
 Pillow
 pyyaml
